@@ -1,6 +1,5 @@
 package runners;
 
-
 import io.cucumber.junit.CucumberOptions;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.runner.RunWith;
@@ -11,17 +10,17 @@ import utils.datatofeature.RunnerPersonalizado;
 import java.io.IOException;
 
 @RunWith(RunnerPersonalizado.class)
-@CucumberOptions(features = {"src/test/resources/features/demo.feature"},
-        tags = "@insert_meeting",
+@CucumberOptions(features = {"src/test/resources/features/login.feature"},
+        tags = "@unsuccessful_login",
         glue = "stepdefinitions",
         plugin = {"pretty", "json:target/cucumber-reports/cucumber.json"},
         snippets = CucumberOptions.SnippetType.CAMELCASE)
-public class Runner {
-    private Runner() {
+public class LoginRunner {
+    private LoginRunner() {
     }
 
     @BeforeSuite
     public static void test() throws InvalidFormatException, IOException {
-        DataToFeature.overrideFeatureFiles("src/test/resources/features/demo.feature");
+        DataToFeature.overrideFeatureFiles("src/test/resources/features/login.feature");
     }
 }
